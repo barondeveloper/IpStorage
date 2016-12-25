@@ -12,7 +12,7 @@ namespace IpStorage.Controllers
     {
         // GET api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public string Get()
         {
             var remoteIpAddress = Request.HttpContext.Connection.RemoteIpAddress;
             var isLocal = remoteIpAddress.ToString() == "::1";
@@ -20,9 +20,9 @@ namespace IpStorage.Controllers
             var userAgent = Request.HttpContext.GetHeaderValueAs<string>("User-Agent");
             var browserName = Utils.GetBrowserName(userAgent);
 
-            IHttpConnectionFeature webConnection = HttpContext.Features.Get<IHttpConnectionFeature>();
+           // IHttpConnectionFeature webConnection = HttpContext.Features.Get<IHttpConnectionFeature>();
 
-            return new string[] { "value1", "value2" };
+            return isLocal ? "127.0.0.1" : remoteIpAddress.ToString();
         }
     }
 }
