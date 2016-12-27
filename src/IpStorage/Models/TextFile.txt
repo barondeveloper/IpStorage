@@ -1,0 +1,1 @@
+﻿Scaffold-DbContext "data source=184.168.47.19;initial catalog=video_tds;user id=misterbaron;password=letsmakeSome$!;MultipleActiveResultSets=True;App=EntityFramework" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
